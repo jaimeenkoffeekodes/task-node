@@ -1,0 +1,21 @@
+
+// to establish connection with database
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// for any action in database like insert, update etc
+generator client {
+  provider = "prisma-client-js"
+}
+
+// -------------------------------------------//
+model RegistrationSchema {
+  id    Int     @id @default(autoincrement())
+  name  String
+  email String  @unique
+  phone_number String @unique
+  password String 
+}
+
